@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-webdeli(cname,cmd) async {
-  var url = "http://192.168.99.101/cgi-bin/webexec.py?w=$cname&x=$cmd";
-  var response = await http.get(url);
-  print(response.body);
-}
 
+class Exec extends StatefulWidget {
+      @override
+      _Exec createState() => _Exec();
+    }
 
-class Exec extends StatelessWidget {
+class _Exec extends State<Exec> {
+  String a='';
   String cmd,cname;
   @override
   Widget build(BuildContext context) {
@@ -66,9 +66,26 @@ class Exec extends StatelessWidget {
                     ),
                   )
                 ),
+                Divider(height: 20),
+                Container(
+                  color: Colors.white,
+                  child: Text(
+                        a,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                  )
+                ),
               ],
             ),
           ),
     );
   }
+  webdeli(cname,cmd) async {
+  var url = "http://192.168.99.101/cgi-bin/webexec.py?w=$cname&x=$cmd";
+  var response = await http.get(url);
+  print(response.body);
+  setState(() {
+          a = response.body;
+      }
+    );
+}
 }
