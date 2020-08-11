@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-webimage() async {
-  var url = "http://192.168.99.101/cgi-bin/webimage.py";
-  var response = await http.get(url);
-  print(response.body);
-}
 
+class Images extends StatefulWidget {
+      @override
+      _Image createState() => _Image();
+    }
 
-class Images extends StatelessWidget {
+class _Image extends State<Images> {
+  String a='';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +33,32 @@ class Images extends StatelessWidget {
                       // print(cmd);
                     },
                     color: Colors.black,
-                    child: Text('click here',
+                    child: Text('Click here to list the images',
                     style: TextStyle(
                       color: Colors.white
                     ),
                   )
                 ),
+                Divider(height: 20),
+                Container(
+                  color: Colors.white,
+                  child: Text(
+                        a,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                  )
+                ),
               ],
             ),
           ),
+    );
+  }
+  webimage() async {
+  var url = "http://192.168.99.101/cgi-bin/webimage.py";
+  var response = await http.get(url);
+  print(response.body);
+  setState(() {
+          a = response.body;
+      }
     );
   }
 }
