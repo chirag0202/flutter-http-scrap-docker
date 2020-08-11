@@ -22,9 +22,12 @@ class _Exec extends State<Exec> {
           backgroundColor: Colors.black,
         ),
       body: Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: Colors.grey.shade300,
+          height: double.infinity,
+          width: double.infinity,
+          color: Colors.grey.shade300,
+          child: ListView(
+          children: <Widget>[
+          Container(
             padding: EdgeInsets.all(20),
             child: Column(
               children: <Widget>[
@@ -77,6 +80,9 @@ class _Exec extends State<Exec> {
               ],
             ),
           ),
+         ],
+       ),
+      )
     );
   }
   webdeli(cname,cmd) async {
