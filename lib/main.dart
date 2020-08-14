@@ -134,12 +134,27 @@ class Drawerbar extends StatelessWidget{
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text('Options',
-              style: TextStyle(color: Colors.white),),
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
+            child: Column(
+              children: <Widget>[
+                Text(
+                  'Docker App',
+                  style: TextStyle(color: Colors.white, fontSize: 19,),
+                  textAlign: TextAlign.center,
+                ),
+                Container(
+                    width: 110,
+                    height: 110,
+                    child: Center(
+                      child:
+                      Image.asset("image/logo1.png")
+                      )
+                    )
+              ],
             ),
+            decoration: BoxDecoration(
+              color: Colors.black,
+            ),
+          ),
             ListTile(
               title: Text('Run an OS'),
               onTap: () {
