@@ -6,6 +6,7 @@ import 'package:tech_app/ps.dart';
 import 'package:tech_app/images.dart';
 import 'package:tech_app/deleteimage.dart';
 import 'package:tech_app/exec.dart';
+import 'dart:ui';
 
 void main() {
   runApp(MyApp());
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
           color: Colors.grey.shade300,
           child: ListView(
           children: <Widget>[
+            
           Container(
             padding: EdgeInsets.all(20),
             child: Column(
@@ -105,7 +107,7 @@ class MyApp extends StatelessWidget {
                       // print(cmd);
                     },
                     color: Colors.black,
-                    child: Text('click here',
+                    child: Text('Click Here',
                     style: TextStyle(
                       color: Colors.white
                     ),)
